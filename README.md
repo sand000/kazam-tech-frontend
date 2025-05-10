@@ -1,12 +1,21 @@
-# React + Vite
+# MQTT To-Do List Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack to-do list application built using **Node.js**, **Redis**, **MongoDB**, **MQTT**, and **React.js**. This app demonstrates how to combine real-time messaging with data caching and persistence.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Backend**: Node.js, Express.js, MQTT, Redis, MongoDB
+- **Frontend**: React.js (with Tailwind CSS or SCSS)
+- **Communication**: MQTT over WebSocket
+- **Deployment Ready**: Cloud-compatible with RedisLabs and MongoDB Atlas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Features
+
+- Add tasks using MQTT publish to `/add` topic.
+- Tasks are cached in Redis under a single key.
+- If tasks > 50, they are offloaded to MongoDB and Redis is flushed.
+- Fetch all tasks using an HTTP GET endpoint.
+- Fully responsive React frontend.
+- MQTT WebSocket support for browser integration.
